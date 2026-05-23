@@ -7,6 +7,7 @@ import LoginSignup from "./LoginSignup";
 import Profile from './page/users/Profile';
 import ChangePassword from './page/users/ChangePassword';
 import InventoryManager from './page/admin/InventoryManager'; // THÊM trang quản lý kho
+import Reader from './page/Reader';
 
 // ─── BỘ LỌC BẢO VỆ ĐƯỜNG DẪN ───
 
@@ -32,6 +33,7 @@ function App() {
       <Route path="/" element={<Home />} />
       <Route path="/auth" element={<LoginSignup />} />
       <Route path="/category" element={<Category />} />
+      <Route path="/read/:bookId" element={<Reader />} />
 
       {/* Đường dẫn cần đăng nhập mới vào được */}
       <Route path="/favourite" element={<ProtectedRoute><Favourite /></ProtectedRoute>} />

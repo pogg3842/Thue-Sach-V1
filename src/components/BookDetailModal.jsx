@@ -1,7 +1,10 @@
 import React from 'react';
 import { X, BookOpen, Clock, ShieldCheck } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const BookDetailModal = ({ book, onClose }) => {
+    const navigate = useNavigate();
+
     if (!book) return null;
 
     return (
@@ -37,10 +40,10 @@ const BookDetailModal = ({ book, onClose }) => {
 
                         <div className="flex gap-4 py-4 border-y border-zinc-100">
                             <div className="flex items-center gap-2 text-zinc-600 text-xs font-bold">
-                                <Clock size={16} className="text-blue-500" /> 7 ngày thuê
+                                <BookOpen size={16} className="text-blue-500" /> Đọc miễn phí
                             </div>
                             <div className="flex items-center gap-2 text-zinc-600 text-xs font-bold">
-                                <ShieldCheck size={16} className="text-green-500" /> Bảo quản tốt
+                                <ShieldCheck size={16} className="text-green-500" /> Trải nghiệm tốt nhất
                             </div>
                         </div>
 
@@ -54,13 +57,12 @@ const BookDetailModal = ({ book, onClose }) => {
                             </p>
                         </div>
 
-                        <div className="pt-6 mt-auto flex items-center justify-between">
-                            <div>
-                                <p className="text-[10px] text-zinc-400 font-black uppercase">Giá trọn gói</p>
-                                <p className="text-3xl font-black text-blue-600">{book.price?.toLocaleString()}đ</p>
-                            </div>
-                            <button className="bg-zinc-900 text-white px-10 py-4 rounded-2xl font-bold hover:bg-blue-600 transition-all active:scale-95 shadow-lg shadow-zinc-200">
-                                Thuê ngay
+                        <div className="pt-6 mt-auto flex items-center justify-end">
+                            <button 
+                                onClick={() => navigate(`/read/${book.id}`)}
+                                className="bg-zinc-900 text-white px-10 py-4 rounded-2xl font-bold hover:bg-blue-600 transition-all active:scale-95 shadow-lg shadow-zinc-200"
+                            >
+                                Đọc ngay
                             </button>
                         </div>
                     </div>
